@@ -1,27 +1,26 @@
 const buttons =  document.querySelectorAll("[data-carousel-button]")
-const images = document.querySelectorAll("[data-image]")
+// const images = document.querySelectorAll("[data-image]")
+const images = document.querySelector("[data-container]")
 // console.log(images)
 // console.log(buttons)
 
 
 //add event listener to the image to display arrow when hover 
-images.forEach(image =>{
-    image.addEventListener('mouseenter',() =>{
-        buttons.forEach(button =>{
+// the event listener is added to the container because it houses the arrows too
 
-            button.style.display = "block"
-        })
-    })
-
-    // //add event listener to the image to takeaway arrow when mouse leaves image
-    image.addEventListener('mouseleave',() =>{
-        buttons.forEach(button =>{
-
-            button.style.display = "none"
-        })
+images.addEventListener('mouseenter', () =>{
+    buttons.forEach(button =>{
+        button.style.display = "block"
     })
 })
 
+//add event listener to the image to takes-away the arrows when mouse leaves image-container
+// this is also added to the container too
+images.addEventListener('mouseleave', () =>{
+    buttons.forEach(button =>{
+        button.style.display = "none"
+    })
+})
 // console.log(buttons)
 // scrolling through and looping on image dispslay
 buttons.forEach(button =>{
